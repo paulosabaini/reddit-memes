@@ -8,7 +8,7 @@ import androidx.room.Query
 
 @Dao
 interface MemeDao {
-    @Query("select * from databasememe")
+    @Query("select * from databasememe order by score DESC")
     fun getMemes(): LiveData<List<DatabaseMeme>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

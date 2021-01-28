@@ -14,7 +14,8 @@ data class DatabaseMeme(
     val created: Long,
     val stickied: Boolean,
     val isVideo: Boolean,
-    val permalink: String)
+    val permalink: String,
+    val score: Int)
 
 fun List<DatabaseMeme>.asDomainModel(): List<Meme> {
     return map {
@@ -26,7 +27,8 @@ fun List<DatabaseMeme>.asDomainModel(): List<Meme> {
             created = it.created,
             stickied = it.stickied,
             isVideo = it.isVideo,
-            permalink = it.permalink
+            permalink = it.permalink,
+            score = it.score
         )
     }
 }

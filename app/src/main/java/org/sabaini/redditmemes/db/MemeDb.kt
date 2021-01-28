@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [DatabaseMeme::class], version = 1)
+@Database(entities = [DatabaseMeme::class], version = 2)
 abstract class MemesDb: RoomDatabase() {
     abstract val memeDao: MemeDao
 }
@@ -17,7 +17,9 @@ fun getDatabase(context: Context): MemesDb {
         if (!::INSTANCE.isInitialized) {
             INSTANCE = Room.databaseBuilder(context.applicationContext,
             MemesDb::class.java,
-            "memes").build()
+            "memes")
+                    .fallbackToDestructiveMigration()
+                    .build()
         }
     }
     return INSTANCE

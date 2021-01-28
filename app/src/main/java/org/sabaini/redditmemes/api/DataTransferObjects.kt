@@ -27,7 +27,8 @@ data class PostData(
     val id: String,
     @Json(name = "is_video")
     val isVideo: Boolean,
-    val permalink: String
+    val permalink: String,
+    val score: Int
 )
 
 // Convert Network results to domain objects
@@ -41,7 +42,8 @@ fun Listing.asDomainModel(): List<Meme> {
             created = it.data.created,
             stickied = it.data.stickied,
             isVideo = it.data.isVideo,
-            permalink = it.data.permalink
+            permalink = it.data.permalink,
+            score = it.data.score
         )
     }
 }
@@ -57,7 +59,8 @@ fun Listing.asDatabaseModel(): Array<DatabaseMeme> {
             created = it.data.created,
             stickied = it.data.stickied,
             isVideo = it.data.isVideo,
-            permalink = it.data.permalink
+            permalink = it.data.permalink,
+                score = it.data.score
         )
     }.toTypedArray()
 }

@@ -13,7 +13,8 @@ data class Meme(
     val created: Long,
     val stickied: Boolean,
     val isVideo: Boolean,
-    val permalink: String
+    val permalink: String,
+    val score: Int
 ): Parcelable {
     fun description(): String {
         val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
