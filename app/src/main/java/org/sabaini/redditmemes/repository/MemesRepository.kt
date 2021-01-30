@@ -10,25 +10,22 @@ import org.sabaini.redditmemes.api.asDatabaseModel
 import org.sabaini.redditmemes.db.MemesDb
 import org.sabaini.redditmemes.db.asDomainModel
 import org.sabaini.redditmemes.model.Meme
-import org.sabaini.redditmemes.viewmodel.FeedViewModel
 import java.lang.Exception
 
 /* Repository that provides data to the ViewModel */
 
 class MemesRepository(private val database: MemesDb) {
 
-    var filter = "hot"
-
-    var memes: LiveData<List<Meme>> = Transformations.map(database.memeDao.getMemes(filter)) {
+    val memes: LiveData<List<Meme>> = Transformations.map(database.memeDao.getMemes()) {
         it.asDomainModel()
     }
 
     /* Makes a request to the API and then insert the result in the database */
-    suspend fun refreshMemes(url: String, filter: String) {
+    suspend fun refreshMemes() {
         withContext(Dispatchers.IO) {
             try {
-                val memes = Network.retrofitService.getMemes(url)
-                database.memeDao.insertAll(*memes.asDatabaseModel(filter))
+                val memes = Network.retrofitService.getMemes()
+                database.memeDao.insertAll(*memes.asDatabaseModel())
             } catch (e: Exception) {
                 Log.d("MemesRepository", e.toString())
             }

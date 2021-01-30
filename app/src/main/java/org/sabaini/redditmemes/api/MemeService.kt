@@ -5,7 +5,6 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Url
 
 /*Create a Retrofit object to make network requests*/
 
@@ -21,8 +20,8 @@ private val retrofit = Retrofit.Builder()
         .build()
 
 interface MemesService {
-    @GET
-    suspend fun getMemes(@Url endpoint: String): Listing
+    @GET("memes.json")
+    suspend fun getMemes(): Listing
 }
 
 object Network {

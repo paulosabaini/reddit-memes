@@ -3,13 +3,12 @@ package org.sabaini.redditmemes.db
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import org.sabaini.redditmemes.model.Meme
-import java.math.BigInteger
 
 /* Class that represent the database table to store the memes*/
-@Entity(primaryKeys = ["id", "position"])
+@Entity()
 data class DatabaseMeme(
+        @PrimaryKey
         val id: Long,
-        val position: Int,
         val title: String,
         val author: String,
         val imgUrl: String,
@@ -17,15 +16,13 @@ data class DatabaseMeme(
         val stickied: Boolean,
         val isVideo: Boolean,
         val permalink: String,
-        val score: Int,
-        val filter: String)
+        val position: Int)
 
 /* Convert database results to domain objects */
 fun List<DatabaseMeme>.asDomainModel(): List<Meme> {
     return map {
         Meme(
                 id = it.id,
-                position = it.position,
                 title = it.title,
                 author = it.author,
                 imgUrl = it.imgUrl,
@@ -33,7 +30,7 @@ fun List<DatabaseMeme>.asDomainModel(): List<Meme> {
                 stickied = it.stickied,
                 isVideo = it.isVideo,
                 permalink = it.permalink,
-                score = it.score
+                position = it.position
         )
     }
 }

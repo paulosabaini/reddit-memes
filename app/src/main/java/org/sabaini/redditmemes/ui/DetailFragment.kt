@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import org.sabaini.redditmemes.R
 import org.sabaini.redditmemes.databinding.FragmentDetailBinding
 import org.sabaini.redditmemes.viewmodel.DetailViewModel
 

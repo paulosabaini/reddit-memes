@@ -29,16 +29,14 @@ data class PostData(
         val id: String,
         @Json(name = "is_video")
         val isVideo: Boolean,
-        val permalink: String,
-        val score: Int
+        val permalink: String
 )
 
 /* Convert api results to domain objects */
 fun Listing.asDomainModel(): List<Meme> {
-    return data.children.mapIndexed { i, it ->
+    return data.children.mapIndexed(){ i, it ->
         Meme(
                 id = BigInteger(it.data.id, 36).toLong(),
-                position = i,
                 title = it.data.title,
                 author = it.data.author,
                 imgUrl = it.data.imgUrl,
@@ -46,17 +44,16 @@ fun Listing.asDomainModel(): List<Meme> {
                 stickied = it.data.stickied,
                 isVideo = it.data.isVideo,
                 permalink = it.data.permalink,
-                score = it.data.score
+                position = i
         )
     }
 }
 
 /* Convert api results to database objects */
-fun Listing.asDatabaseModel(filter: String): Array<DatabaseMeme> {
+fun Listing.asDatabaseModel(): Array<DatabaseMeme> {
     return data.children.mapIndexed { i, it ->
         DatabaseMeme(
                 id = BigInteger(it.data.id, 36).toLong(),
-                position = i,
                 title = it.data.title,
                 author = it.data.author,
                 imgUrl = it.data.imgUrl,
@@ -64,8 +61,7 @@ fun Listing.asDatabaseModel(filter: String): Array<DatabaseMeme> {
                 stickied = it.data.stickied,
                 isVideo = it.data.isVideo,
                 permalink = it.data.permalink,
-                score = it.data.score,
-                filter = filter
+                position = i
         )
     }.toTypedArray()
 }

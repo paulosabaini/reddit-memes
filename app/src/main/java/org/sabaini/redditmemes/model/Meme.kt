@@ -2,8 +2,6 @@ package org.sabaini.redditmemes.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
-import java.math.BigInteger
-import java.text.FieldPosition
 import java.text.SimpleDateFormat
 
 /* Model utilized in the views */
@@ -11,7 +9,6 @@ import java.text.SimpleDateFormat
 @Parcelize
 data class Meme(
         val id: Long,
-        val position: Int,
         val title: String,
         val author: String,
         val imgUrl: String,
@@ -19,7 +16,7 @@ data class Meme(
         val stickied: Boolean,
         val isVideo: Boolean,
         val permalink: String,
-        val score: Int
+        val position: Int
 ) : Parcelable {
     fun description(): String {
         val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
