@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import org.sabaini.redditmemes.model.Meme
 
-class DetailViewModel : ViewModel(){
+class DetailViewModel : ViewModel() {
     private val _selectedMeme = MutableLiveData<Meme>()
 
     val selectedMeme: LiveData<Meme>

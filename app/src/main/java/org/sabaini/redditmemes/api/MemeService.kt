@@ -7,24 +7,18 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Url
 
+/*Create a Retrofit object to make network requests*/
+
 private const val BASE_URL = "https://www.reddit.com/r/"
 
-enum class MemesFilter(val value: String) {
-    HOT("hot"),
-    NEW("new"),
-    TOP("top"),
-    RISING("rising"),
-    CONTROVERSIAL("controversial")
-}
-
 private val moshi = Moshi.Builder()
-    .add(KotlinJsonAdapterFactory())
-    .build()
+        .add(KotlinJsonAdapterFactory())
+        .build()
 
 private val retrofit = Retrofit.Builder()
-    .addConverterFactory(MoshiConverterFactory.create(moshi))
-    .baseUrl(BASE_URL)
-    .build()
+        .addConverterFactory(MoshiConverterFactory.create(moshi))
+        .baseUrl(BASE_URL)
+        .build()
 
 interface MemesService {
     @GET
@@ -32,5 +26,5 @@ interface MemesService {
 }
 
 object Network {
-    val retrofitService : MemesService by lazy { retrofit.create(MemesService::class.java) }
+    val retrofitService: MemesService by lazy { retrofit.create(MemesService::class.java) }
 }

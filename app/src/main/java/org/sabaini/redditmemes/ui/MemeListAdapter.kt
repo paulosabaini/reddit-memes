@@ -8,10 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import org.sabaini.redditmemes.databinding.ListViewItemBinding
 import org.sabaini.redditmemes.model.Meme
 
-class MemeListAdapter(val onClickListener: OnClickListener):
+class MemeListAdapter(val onClickListener: OnClickListener) :
         ListAdapter<Meme, MemeListAdapter.MemeViewHolder>(DiffCallback) {
 
-    class MemeViewHolder(private var binding: ListViewItemBinding):
+    class MemeViewHolder(private var binding: ListViewItemBinding) :
             RecyclerView.ViewHolder(binding.root) {
         fun bind(meme: Meme) {
             binding.meme = meme
@@ -19,7 +19,7 @@ class MemeListAdapter(val onClickListener: OnClickListener):
         }
     }
 
-    companion object DiffCallback: DiffUtil.ItemCallback<Meme>() {
+    companion object DiffCallback : DiffUtil.ItemCallback<Meme>() {
         override fun areItemsTheSame(oldItem: Meme, newItem: Meme): Boolean {
             return oldItem === newItem
         }
