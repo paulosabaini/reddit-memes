@@ -13,6 +13,6 @@ interface MemeDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg memes: DatabaseMeme)
 
-    @Query("select * from databasememe order by position")
+    @Query("select * from databasememe order by position, created DESC")
     fun getMemes(): LiveData<List<DatabaseMeme>>
 }

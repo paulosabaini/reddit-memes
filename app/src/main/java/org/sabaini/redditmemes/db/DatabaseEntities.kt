@@ -5,9 +5,8 @@ import androidx.room.PrimaryKey
 import org.sabaini.redditmemes.model.Meme
 
 /* Class that represent the database table to store the memes*/
-@Entity()
+@Entity(primaryKeys = ["id", "position"])
 data class DatabaseMeme(
-        @PrimaryKey
         val id: Long,
         val title: String,
         val author: String,
