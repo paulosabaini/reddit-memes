@@ -11,33 +11,59 @@
             type="org.sabaini.redditmemes.model.Meme" />
     </data>
 
-    <LinearLayout
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_margin="@dimen/default_space"
+        app:cardElevation="5dp">
 
-        <TextView
-            android:id="@+id/meme_title"
-            android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:layout_marginBottom="10dp"
-            android:adjustViewBounds="true"
-            android:text="@{meme.title}"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            tools:text="Meme Title" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/meme_image"
-            android:layout_width="wrap_content"
-            android:layout_height="400dp"
-            android:layout_marginBottom="20dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            app:imageUrl="@{meme.imgUrl}"
-            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+            <TextView
+                android:id="@+id/meme_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:paddingLeft="@dimen/default_space"
+                android:paddingTop="@dimen/default_space"
+                android:text="@{meme.title}"
+                android:textColor="@color/title"
+                android:textSize="@dimen/title"
+                tools:text="Meme Title" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/meme_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:padding="@dimen/default_space"
+                android:text="@{meme.subtitle()}"
+                android:textSize="@dimen/subtitle" />
+
+            <ImageView
+                android:id="@+id/meme_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                app:imageUrl="@{meme.imgUrl}"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+            <TextView
+                android:id="@+id/meme_points"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:padding="@dimen/default_space"
+                android:text="@{meme.getPoints()}"
+                android:textSize="@dimen/subtitle" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
 </layout>

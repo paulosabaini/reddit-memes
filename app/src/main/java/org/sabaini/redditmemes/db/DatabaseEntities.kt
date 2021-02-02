@@ -5,8 +5,9 @@ import androidx.room.PrimaryKey
 import org.sabaini.redditmemes.model.Meme
 
 /* Class that represent the database table to store the memes*/
-@Entity(primaryKeys = ["id", "position"])
+@Entity
 data class DatabaseMeme(
+        @PrimaryKey
         val id: Long,
         val title: String,
         val author: String,
@@ -15,7 +16,11 @@ data class DatabaseMeme(
         val stickied: Boolean,
         val isVideo: Boolean,
         val permalink: String,
-        val position: Int)
+        val position: Int,
+        val score: Int,
+        val createdUtc: Long,
+        val numComments: Int,
+        val subreddit: String)
 
 /* Convert database results to domain objects */
 fun List<DatabaseMeme>.asDomainModel(): List<Meme> {
@@ -29,7 +34,11 @@ fun List<DatabaseMeme>.asDomainModel(): List<Meme> {
                 stickied = it.stickied,
                 isVideo = it.isVideo,
                 permalink = it.permalink,
-                position = it.position
+                position = it.position,
+                score = it.score,
+                createdUtc = it.createdUtc,
+                numComments = it.numComments,
+                subreddit = it.subreddit
         )
     }
 }

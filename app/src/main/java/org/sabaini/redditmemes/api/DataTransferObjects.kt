@@ -29,25 +29,14 @@ data class PostData(
         val id: String,
         @Json(name = "is_video")
         val isVideo: Boolean,
-        val permalink: String
+        val permalink: String,
+        val score: Int,
+        @Json(name = "created_utc")
+        val createdUtc: Long,
+        @Json(name = "num_comments")
+        val numComments: Int,
+        val subreddit: String
 )
-
-/* Convert api results to domain objects */
-fun Listing.asDomainModel(): List<Meme> {
-    return data.children.mapIndexed(){ i, it ->
-        Meme(
-                id = BigInteger(it.data.id, 36).toLong(),
-                title = it.data.title,
-                author = it.data.author,
-                imgUrl = it.data.imgUrl,
-                created = it.data.created,
-                stickied = it.data.stickied,
-                isVideo = it.data.isVideo,
-                permalink = it.data.permalink,
-                position = i
-        )
-    }
-}
 
 /* Convert api results to database objects */
 fun Listing.asDatabaseModel(): Array<DatabaseMeme> {
@@ -61,7 +50,11 @@ fun Listing.asDatabaseModel(): Array<DatabaseMeme> {
                 stickied = it.data.stickied,
                 isVideo = it.data.isVideo,
                 permalink = it.data.permalink,
-                position = i
+                position = i,
+                score = it.data.score,
+                createdUtc = it.data.createdUtc,
+                numComments = it.data.numComments,
+                subreddit = it.data.subreddit
         )
     }.toTypedArray()
 }

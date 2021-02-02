@@ -17,7 +17,7 @@ import java.lang.Exception
 class MemesRepository(private val database: MemesDb) {
 
     val memes: LiveData<List<Meme>> = Transformations.map(database.memeDao.getMemes()) {
-        it.asDomainModel()
+        it.asDomainModel().filter { !it.stickied && !it.isVideo }
     }
 
     /* Makes a request to the API and then insert the result in the database */

@@ -11,57 +11,76 @@
             type="org.sabaini.redditmemes.viewmodel.DetailViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/detail_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:fontFamily="@font/roboto"
+                android:padding="@dimen/default_space"
+                android:text="@{viewModel.selectedMeme.title}"
+                android:textColor="@color/title"
+                android:textSize="@dimen/title"
+                tools:text="Title" />
 
-                <TextView
-                    android:id="@+id/detail_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:text="@{viewModel.selectedMeme.title}"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    tools:text="Title" />
+            <TextView
+                android:id="@+id/detail_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:padding="@dimen/default_space"
+                android:text="@{viewModel.selectedMeme.subtitle()}"
+                android:textSize="@dimen/subtitle"
+                tools:text="Description" />
 
-                <ImageView
-                    android:id="@+id/detail_image"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:adjustViewBounds="true"
-                    app:imageUrl="@{viewModel.selectedMeme.imgUrl}"
-                    tools:src="@tools:sample/backgrounds/scenic" />
+            <ImageView
+                android:id="@+id/detail_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                app:imageUrl="@{viewModel.selectedMeme.imgUrl}"
+                tools:src="@tools:sample/backgrounds/scenic" />
 
-                <TextView
-                    android:id="@+id/detail_info"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@{viewModel.selectedMeme.description()}"
-                    tools:text="Description" />
+            <TextView
+                android:id="@+id/detail_points"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:paddingLeft="@dimen/default_space"
+                android:paddingTop="@dimen/default_space"
+                android:text="@{viewModel.selectedMeme.getPoints()}"
+                android:textSize="@dimen/subtitle" />
 
-                <Button
-                    android:id="@+id/detail_view_post"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="View Post" />
-            </LinearLayout>
-        </ScrollView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/detail_num_comments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:paddingLeft="@dimen/default_space"
+                android:paddingBottom="@dimen/default_space"
+                android:text="@{viewModel.selectedMeme.getNumComments()}"
+                android:textSize="@dimen/subtitle" />
+
+            <Button
+                android:id="@+id/detail_view_post"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/default_space"
+                android:layout_marginRight="@dimen/default_space"
+                android:fontFamily="@font/roboto"
+                android:text="@string/view_post_on_reddit"
+                android:textAllCaps="false"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
 
 </layout>

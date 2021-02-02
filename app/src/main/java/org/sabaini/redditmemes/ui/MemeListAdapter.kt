@@ -30,7 +30,7 @@ class MemeListAdapter(val onClickListener: OnClickListener) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MemeViewHolder {
-        return MemeViewHolder(ListViewItemBinding.inflate(LayoutInflater.from(parent.context)))
+        return MemeViewHolder(ListViewItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     override fun onBindViewHolder(holder: MemeViewHolder, position: Int) {
