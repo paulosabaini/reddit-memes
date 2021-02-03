@@ -26,11 +26,31 @@ data class Meme(
         val subreddit: String
 ) : Parcelable {
     fun subtitle(): String {
-        return "$author • ${getFormattedDate()} • $subreddit"
+        return "$author • ${getTimeElapsed()} • $subreddit"
     }
 
-    fun getFormattedDate(): String {
-        val date = Date(createdUtc * 1000L)
+    private fun getTimeElapsed(): String {
+        val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+        val dateCreated = sdf.parse(getFormattedDate(createdUtc * 1000L))
+        val dateNow = sdf.parse(getFormattedDate(System.currentTimeMillis()))
+
+        val diff = dateNow.time - dateCreated.time
+
+        val diffDays = (diff / (24 * 60 * 60 * 1000)).toInt()
+        val diffHours = (diff / (60 * 60 * 1000)).toInt()
+        val diffMin = (diff / (60 * 1000)).toInt()
+
+        if (diffDays >= 1) {
+            return "around $diffDays days ago"
+        } else if (diffHours >= 1) {
+            return "around $diffHours hours ago"
+        } else {
+            return "around $diffMin minutes ago"
+        }
+    }
+
+    private fun getFormattedDate(milli: Long): String {
+        val date = Date(milli)
         val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
         sdf.timeZone = TimeZone.getTimeZone(TimeZone.getDefault().id)
 
