@@ -24,7 +24,6 @@ data class PostData(
         val author: String,
         @Json(name = "url")
         val imgUrl: String,
-        val created: Long,
         val stickied: Boolean,
         val id: String,
         @Json(name = "is_video")
@@ -46,7 +45,6 @@ fun Listing.asDatabaseModel(): Array<DatabaseMeme> {
                 title = it.data.title,
                 author = it.data.author,
                 imgUrl = it.data.imgUrl,
-                created = it.data.created,
                 stickied = it.data.stickied,
                 isVideo = it.data.isVideo,
                 permalink = it.data.permalink,

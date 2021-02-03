@@ -15,7 +15,6 @@ data class Meme(
         val title: String,
         val author: String,
         val imgUrl: String,
-        val created: Long,
         val stickied: Boolean,
         val isVideo: Boolean,
         val permalink: String,
