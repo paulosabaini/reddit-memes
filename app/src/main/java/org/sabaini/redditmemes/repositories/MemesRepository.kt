@@ -9,7 +9,7 @@ import org.sabaini.redditmemes.data.remote.Network
 import org.sabaini.redditmemes.data.remote.asDatabaseModel
 import org.sabaini.redditmemes.data.local.MemesDb
 import org.sabaini.redditmemes.data.local.asDomainModel
-import org.sabaini.redditmemes.models.Meme
+import org.sabaini.redditmemes.entities.Meme
 import java.lang.Exception
 
 /* Repository that provides data to the ViewModel */

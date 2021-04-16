@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import org.sabaini.redditmemes.databinding.ListViewItemBinding
-import org.sabaini.redditmemes.models.Meme
+import org.sabaini.redditmemes.entities.Meme
 
 class MemeListAdapter(val onClickListener: OnClickListener) :
         ListAdapter<Meme, MemeListAdapter.MemeViewHolder>(DiffCallback) {

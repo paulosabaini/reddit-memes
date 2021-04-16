@@ -3,7 +3,7 @@ package org.sabaini.redditmemes.ui.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import org.sabaini.redditmemes.models.Meme
+import org.sabaini.redditmemes.entities.Meme
 
 class DetailViewModel : ViewModel() {
     private val _selectedMeme = MutableLiveData<Meme>()

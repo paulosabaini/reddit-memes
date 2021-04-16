@@ -21,7 +21,7 @@
         tools:layout="@layout/fragment_detail">
         <argument
             android:name="selectedMeme"
-            app:argType="org.sabaini.redditmemes.models.Meme"
+            app:argType="org.sabaini.redditmemes.entities.Meme"
             />
     </fragment>
 </navigation>

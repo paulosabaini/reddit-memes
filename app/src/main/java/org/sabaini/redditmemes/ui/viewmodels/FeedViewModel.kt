@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.*
 import kotlinx.coroutines.launch
 import org.sabaini.redditmemes.data.local.getDatabase
-import org.sabaini.redditmemes.models.Meme
+import org.sabaini.redditmemes.entities.Meme
 import org.sabaini.redditmemes.repositories.MemesRepository
 
 class FeedViewModel(application: Application) : ViewModel() {
