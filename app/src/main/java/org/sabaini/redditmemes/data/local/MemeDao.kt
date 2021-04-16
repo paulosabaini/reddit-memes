@@ -1,4 +1,4 @@
-package org.sabaini.redditmemes.db
+package org.sabaini.redditmemes.data.local
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

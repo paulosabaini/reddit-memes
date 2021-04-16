@@ -1,4 +1,4 @@
-package org.sabaini.redditmemes.api
+package org.sabaini.redditmemes.data.remote
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

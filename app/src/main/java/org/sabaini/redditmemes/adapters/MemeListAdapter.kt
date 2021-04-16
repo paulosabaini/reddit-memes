@@ -1,4 +1,4 @@
-package org.sabaini.redditmemes.ui
+package org.sabaini.redditmemes.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import org.sabaini.redditmemes.databinding.ListViewItemBinding
-import org.sabaini.redditmemes.model.Meme
+import org.sabaini.redditmemes.models.Meme
 
 class MemeListAdapter(val onClickListener: OnClickListener) :
         ListAdapter<Meme, MemeListAdapter.MemeViewHolder>(DiffCallback) {

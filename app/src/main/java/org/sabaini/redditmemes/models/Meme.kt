@@ -1,4 +1,4 @@
-package org.sabaini.redditmemes.model
+package org.sabaini.redditmemes.models
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

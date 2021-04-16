@@ -1,15 +1,15 @@
-package org.sabaini.redditmemes.repository
+package org.sabaini.redditmemes.repositories
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import org.sabaini.redditmemes.api.Network
-import org.sabaini.redditmemes.api.asDatabaseModel
-import org.sabaini.redditmemes.db.MemesDb
-import org.sabaini.redditmemes.db.asDomainModel
-import org.sabaini.redditmemes.model.Meme
+import org.sabaini.redditmemes.data.remote.Network
+import org.sabaini.redditmemes.data.remote.asDatabaseModel
+import org.sabaini.redditmemes.data.local.MemesDb
+import org.sabaini.redditmemes.data.local.asDomainModel
+import org.sabaini.redditmemes.models.Meme
 import java.lang.Exception
 
 /* Repository that provides data to the ViewModel */

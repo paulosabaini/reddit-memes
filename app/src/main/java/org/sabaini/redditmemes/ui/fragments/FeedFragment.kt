@@ -1,7 +1,6 @@
-package org.sabaini.redditmemes.ui
+package org.sabaini.redditmemes.ui.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +8,9 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import org.sabaini.redditmemes.adapters.MemeListAdapter
 import org.sabaini.redditmemes.databinding.FragmentFeedBinding
-import org.sabaini.redditmemes.viewmodel.FeedViewModel
+import org.sabaini.redditmemes.ui.viewmodels.FeedViewModel
 
 class FeedFragment : Fragment() {
 

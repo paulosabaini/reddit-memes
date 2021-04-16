@@ -1,8 +1,8 @@
-package org.sabaini.redditmemes.db
+package org.sabaini.redditmemes.data.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import org.sabaini.redditmemes.model.Meme
+import org.sabaini.redditmemes.models.Meme
 
 /* Class that represent the database table to store the memes*/
 @Entity

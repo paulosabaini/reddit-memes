@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="org.sabaini.redditmemes.viewmodel.DetailViewModel" />
+            type="org.sabaini.redditmemes.ui.viewmodels.DetailViewModel" />
     </data>
 
 

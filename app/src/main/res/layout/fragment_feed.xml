@@ -9,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="org.sabaini.redditmemes.viewmodel.FeedViewModel" />
+            type="org.sabaini.redditmemes.ui.viewmodels.FeedViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

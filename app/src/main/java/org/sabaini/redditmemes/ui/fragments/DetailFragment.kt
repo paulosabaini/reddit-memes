@@ -1,4 +1,4 @@
-package org.sabaini.redditmemes.ui
+package org.sabaini.redditmemes.ui.fragments
 
 import android.content.Intent
 import android.net.Uri
@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import org.sabaini.redditmemes.databinding.FragmentDetailBinding
-import org.sabaini.redditmemes.viewmodel.DetailViewModel
+import org.sabaini.redditmemes.ui.viewmodels.DetailViewModel
 
 class DetailFragment : Fragment() {
 

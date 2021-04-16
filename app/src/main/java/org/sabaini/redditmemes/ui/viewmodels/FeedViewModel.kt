@@ -1,11 +1,11 @@
-package org.sabaini.redditmemes.viewmodel
+package org.sabaini.redditmemes.ui.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.*
 import kotlinx.coroutines.launch
-import org.sabaini.redditmemes.db.getDatabase
-import org.sabaini.redditmemes.model.Meme
-import org.sabaini.redditmemes.repository.MemesRepository
+import org.sabaini.redditmemes.data.local.getDatabase
+import org.sabaini.redditmemes.models.Meme
+import org.sabaini.redditmemes.repositories.MemesRepository
 
 class FeedViewModel(application: Application) : ViewModel() {
 

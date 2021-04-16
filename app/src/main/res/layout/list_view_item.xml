@@ -8,7 +8,7 @@
 
         <variable
             name="meme"
-            type="org.sabaini.redditmemes.model.Meme" />
+            type="org.sabaini.redditmemes.models.Meme" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

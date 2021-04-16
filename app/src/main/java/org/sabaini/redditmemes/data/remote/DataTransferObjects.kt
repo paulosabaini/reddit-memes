@@ -1,8 +1,7 @@
-package org.sabaini.redditmemes.api
+package org.sabaini.redditmemes.data.remote
 
 import com.squareup.moshi.Json
-import org.sabaini.redditmemes.db.DatabaseMeme
-import org.sabaini.redditmemes.model.Meme
+import org.sabaini.redditmemes.data.local.DatabaseMeme
 import java.math.BigInteger
 
 /* Objects that represent the JSON from the reddit API */

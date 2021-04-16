@@ -1,4 +1,4 @@
-package org.sabaini.redditmemes.ui
+package org.sabaini.redditmemes.adapters
 
 import android.content.Context
 import android.widget.ImageView
@@ -9,7 +9,7 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.annotation.GlideModule
 import com.bumptech.glide.module.AppGlideModule
 import org.sabaini.redditmemes.R
-import org.sabaini.redditmemes.model.Meme
+import org.sabaini.redditmemes.models.Meme
 
 @GlideModule
 class AppGlideModule : AppGlideModule()
