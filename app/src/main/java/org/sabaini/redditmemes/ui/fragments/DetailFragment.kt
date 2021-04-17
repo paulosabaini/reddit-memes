@@ -7,15 +7,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import dagger.hilt.android.AndroidEntryPoint
 import org.sabaini.redditmemes.databinding.FragmentDetailBinding
 import org.sabaini.redditmemes.ui.viewmodels.DetailViewModel
 
+@AndroidEntryPoint
 class DetailFragment : Fragment() {
 
-    private val viewModel: DetailViewModel by lazy {
-        ViewModelProvider(this).get(DetailViewModel::class.java)
-    }
+    private val viewModel: DetailViewModel by viewModels()
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
