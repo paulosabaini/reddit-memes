@@ -26,10 +26,10 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
         val imgUri = imgUrl.toUri().buildUpon().scheme("https").build()
 
         GlideApp.with(imgView.context)
-                .load(imgUri)
-                .placeholder(getLoadingDrawable(imgView.context, 5f, 30f))
-                .error(R.drawable.ic_error)
-                .into(imgView)
+            .load(imgUri)
+            .placeholder(getLoadingDrawable(imgView.context, 5f, 30f))
+            .error(R.drawable.ic_error)
+            .into(imgView)
     }
 }
 

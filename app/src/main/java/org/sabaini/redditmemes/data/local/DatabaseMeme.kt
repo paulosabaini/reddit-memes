@@ -23,7 +23,7 @@ data class DatabaseMeme(
 )
 
 /* Convert database results to domain objects */
-fun List<DatabaseMeme>.asEntitie(): List<Meme> {
+fun List<DatabaseMeme>.asEntitieMeme(): List<Meme> {
     return map {
         Meme(
             id = it.id,

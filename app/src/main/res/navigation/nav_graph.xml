@@ -9,7 +9,7 @@
         android:id="@+id/feedFragment"
         android:name="org.sabaini.redditmemes.ui.fragments.FeedFragment"
         android:label="fragment_feed"
-        tools:layout="@layout/fragment_feed" >
+        tools:layout="@layout/fragment_feed">
         <action
             android:id="@+id/action_feedFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
@@ -21,7 +21,6 @@
         tools:layout="@layout/fragment_detail">
         <argument
             android:name="selectedMeme"
-            app:argType="org.sabaini.redditmemes.entities.Meme"
-            />
+            app:argType="org.sabaini.redditmemes.entities.Meme" />
     </fragment>
 </navigation>

@@ -47,6 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
+                android:contentDescription="@string/meme_image"
                 app:imageUrl="@{viewModel.selectedMeme.imgUrl}"
                 tools:src="@tools:sample/backgrounds/scenic" />
 
@@ -55,8 +56,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
-                android:paddingLeft="@dimen/default_space"
+                android:paddingStart="@dimen/default_space"
                 android:paddingTop="@dimen/default_space"
+                android:paddingEnd="@dimen/default_space"
                 android:text="@{viewModel.selectedMeme.getPoints()}"
                 android:textSize="@dimen/subtitle" />
 
@@ -65,7 +67,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
-                android:paddingLeft="@dimen/default_space"
+                android:paddingStart="@dimen/default_space"
+                android:paddingEnd="@dimen/default_space"
                 android:paddingBottom="@dimen/default_space"
                 android:text="@{viewModel.selectedMeme.getNumComments()}"
                 android:textSize="@dimen/subtitle" />

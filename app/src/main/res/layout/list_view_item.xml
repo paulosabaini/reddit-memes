@@ -28,8 +28,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto"
-                android:paddingLeft="@dimen/default_space"
+                android:paddingStart="@dimen/default_space"
                 android:paddingTop="@dimen/default_space"
+                android:paddingEnd="@dimen/default_space"
                 android:text="@{meme.title}"
                 android:textColor="@color/title"
                 android:textSize="@dimen/title"
@@ -49,6 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
+                android:contentDescription="@string/meme_image"
                 android:scaleType="fitCenter"
                 app:imageUrl="@{meme.imgUrl}"
                 tools:srcCompat="@tools:sample/backgrounds/scenic" />

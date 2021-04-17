@@ -1,15 +1,14 @@
 package org.sabaini.redditmemes.ui.viewmodels
 
-import android.util.Log
 import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import org.sabaini.redditmemes.entities.Meme
 import org.sabaini.redditmemes.repositories.RedditMemesRepository
 import javax.inject.Inject
 
 @HiltViewModel
-class FeedViewModel @Inject constructor(private val repository: RedditMemesRepository) : ViewModel() {
+class FeedViewModel @Inject constructor(repository: RedditMemesRepository) :
+    ViewModel() {
 
     private var _memes = MutableLiveData<List<Meme>>()
 

@@ -5,7 +5,7 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import org.sabaini.redditmemes.data.local.MemeDao
-import org.sabaini.redditmemes.data.local.asEntitie
+import org.sabaini.redditmemes.data.local.asEntitieMeme
 import org.sabaini.redditmemes.data.remote.RedditApi
 import org.sabaini.redditmemes.data.remote.asDatabaseMeme
 import org.sabaini.redditmemes.entities.Meme
@@ -14,7 +14,10 @@ import javax.inject.Inject
 
 /* Repository that provides data to the ViewModel */
 
-class RedditMemesRepository @Inject constructor(private val memeDao: MemeDao, private val redditApi: RedditApi) {
+class RedditMemesRepository @Inject constructor(
+    private val memeDao: MemeDao,
+    private val redditApi: RedditApi
+) {
 
     fun getMemes(): Flow<List<Meme>> {
         val scope = CoroutineScope(Job() + Dispatchers.IO)
@@ -22,8 +25,8 @@ class RedditMemesRepository @Inject constructor(private val memeDao: MemeDao, pr
             refreshMemes()
         }
 
-        return memeDao.load().map {
-            it.asEntitie().filter { !it.stickied && !it.isVideo }
+        return memeDao.load().map { list ->
+            list.asEntitieMeme().filter { !it.stickied && !it.isVideo }
         }
     }
 

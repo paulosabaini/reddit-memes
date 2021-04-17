@@ -8,11 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import org.sabaini.redditmemes.databinding.ListViewItemBinding
 import org.sabaini.redditmemes.entities.Meme
 
-class MemeListAdapter(val onClickListener: OnClickListener) :
-        ListAdapter<Meme, MemeListAdapter.MemeViewHolder>(DiffCallback) {
+class MemeListAdapter(private val onClickListener: OnClickListener) :
+    ListAdapter<Meme, MemeListAdapter.MemeViewHolder>(DiffCallback) {
 
     class MemeViewHolder(private var binding: ListViewItemBinding) :
-            RecyclerView.ViewHolder(binding.root) {
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(meme: Meme) {
             binding.meme = meme
             binding.executePendingBindings()
@@ -30,7 +30,13 @@ class MemeListAdapter(val onClickListener: OnClickListener) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MemeViewHolder {
-        return MemeViewHolder(ListViewItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return MemeViewHolder(
+            ListViewItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: MemeViewHolder, position: Int) {
