@@ -22,6 +22,7 @@ You can
 * [RecyclerView](https://developer.android.com/guide/topics/ui/layout/recyclerview)
 * [Room Persistence Library](https://developer.android.com/training/data-storage/room)
 * [Kotlin coroutines](https://developer.android.com/kotlin/coroutines)
+* [Hilt](https://developer.android.com/training/dependency-injection/hilt-android)
 
 ## API
 * [Reddit API](https://www.reddit.com/dev/api/)
