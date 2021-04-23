@@ -16,7 +16,6 @@ You can
 * [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
 * [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
 * [Navigation](https://developer.android.com/guide/navigation)
-* [Moshi](https://github.com/square/moshi)
 * [Retrofit](https://square.github.io/retrofit/)
 * [Glide](https://github.com/bumptech/glide/)
 * [RecyclerView](https://developer.android.com/guide/topics/ui/layout/recyclerview)
