@@ -21,11 +21,11 @@ class MemeListAdapter(private val onClickListener: OnClickListener) :
 
     companion object DiffCallback : DiffUtil.ItemCallback<Meme>() {
         override fun areItemsTheSame(oldItem: Meme, newItem: Meme): Boolean {
-            return oldItem === newItem
+            return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(oldItem: Meme, newItem: Meme): Boolean {
-            return oldItem.id == newItem.id
+            return oldItem == newItem
         }
     }
 
