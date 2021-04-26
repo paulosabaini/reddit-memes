@@ -2,12 +2,13 @@ package org.sabaini.redditmemes.ui.viewmodels
 
 import androidx.lifecycle.*
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import org.sabaini.redditmemes.entities.Meme
 import org.sabaini.redditmemes.repositories.RedditMemesRepository
 import javax.inject.Inject
 
 @HiltViewModel
-class FeedViewModel @Inject constructor(repository: RedditMemesRepository) :
+class FeedViewModel @Inject constructor(private val repository: RedditMemesRepository) :
     ViewModel() {
 
     private var _memes = MutableLiveData<List<Meme>>()
@@ -33,5 +34,12 @@ class FeedViewModel @Inject constructor(repository: RedditMemesRepository) :
 
     fun displayMemeComplete() {
         _navigateToSelectedMeme.value = null
+    }
+
+    fun loadMore() {
+        viewModelScope.launch {
+            val last = _memes.value?.last()!!
+            repository.loadMoreMemes(last.name, last.position)
+        }
     }
 }

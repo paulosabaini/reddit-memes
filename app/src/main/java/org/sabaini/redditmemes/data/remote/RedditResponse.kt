@@ -1,5 +1,6 @@
 package org.sabaini.redditmemes.data.remote
 
+import android.util.Log
 import com.google.gson.annotations.SerializedName
 import org.sabaini.redditmemes.data.local.DatabaseMeme
 import java.math.BigInteger
@@ -33,12 +34,15 @@ data class PostData(
     val createdUtc: Long,
     @SerializedName("num_comments")
     val numComments: Int,
-    val subreddit: String
+    val subreddit: String,
+    val name: String
 )
 
 /* Convert api results to database objects */
-fun Listing.asDatabaseMeme(): Array<DatabaseMeme> {
+fun Listing.asDatabaseMeme(position: Int?): Array<DatabaseMeme> {
+    var p = position
     return data.children.mapIndexed { i, it ->
+        if (p == null) p = i else p = p!! + 1
         DatabaseMeme(
             id = BigInteger(it.data.id, 36).toLong(),
             title = it.data.title,
@@ -47,11 +51,12 @@ fun Listing.asDatabaseMeme(): Array<DatabaseMeme> {
             stickied = it.data.stickied,
             isVideo = it.data.isVideo,
             permalink = it.data.permalink,
-            position = i,
+            position = p!!,
             score = it.data.score,
             createdUtc = it.data.createdUtc,
             numComments = it.data.numComments,
-            subreddit = it.data.subreddit
+            subreddit = it.data.subreddit,
+            name = it.data.name
         )
     }.toTypedArray()
 }

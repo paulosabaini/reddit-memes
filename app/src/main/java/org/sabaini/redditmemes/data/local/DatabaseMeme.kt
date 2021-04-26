@@ -19,7 +19,8 @@ data class DatabaseMeme(
     val score: Int,
     val createdUtc: Long,
     val numComments: Int,
-    val subreddit: String
+    val subreddit: String,
+    val name: String
 )
 
 /* Convert database results to domain objects */
@@ -37,7 +38,8 @@ fun List<DatabaseMeme>.asEntitieMeme(): List<Meme> {
             score = it.score,
             createdUtc = it.createdUtc,
             numComments = it.numComments,
-            subreddit = it.subreddit
+            subreddit = it.subreddit,
+            name = it.name
         )
     }
 }

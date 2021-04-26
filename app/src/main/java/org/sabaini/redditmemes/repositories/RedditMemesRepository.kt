@@ -35,7 +35,18 @@ class RedditMemesRepository @Inject constructor(
         withContext(Dispatchers.IO) {
             try {
                 val memes = redditApi.getMemes()
-                memeDao.save(*memes.asDatabaseMeme())
+                memeDao.save(*memes.asDatabaseMeme(null))
+            } catch (e: Exception) {
+                Log.d("MemesRepository", e.stackTraceToString())
+            }
+        }
+    }
+
+    suspend fun loadMoreMemes(name: String, lastPosition: Int) {
+        withContext(Dispatchers.IO) {
+            try {
+                val memes = redditApi.getMemesAfter(name)
+                memeDao.save(*memes.asDatabaseMeme(lastPosition))
             } catch (e: Exception) {
                 Log.d("MemesRepository", e.stackTraceToString())
             }

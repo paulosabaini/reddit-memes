@@ -4,6 +4,7 @@ import android.content.Context
 import android.widget.ImageView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.annotation.GlideModule
@@ -16,7 +17,7 @@ class AppGlideModule : AppGlideModule()
 
 @BindingAdapter("listData")
 fun bindRecyclerView(recyclerView: RecyclerView, data: List<Meme>?) {
-    val adapter = recyclerView.adapter as MemeListAdapter
+    val adapter = (recyclerView.adapter as ConcatAdapter).adapters[0] as MemeListAdapter
     adapter.submitList(data)
 }
 

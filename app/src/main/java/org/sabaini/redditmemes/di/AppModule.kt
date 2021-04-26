@@ -2,6 +2,8 @@ package org.sabaini.redditmemes.di
 
 import android.content.Context
 import androidx.room.Room
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,12 +31,19 @@ object AppModule {
     @Singleton
     @Provides
     fun provideMemeDatabase(@ApplicationContext context: Context): MemeDatabase {
+
+        val MIGRATION_14_15 = object : Migration(14, 15) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.execSQL("ALTER TABLE DatabaseMeme ADD COLUMN name TEXT NOT NULL DEFAULT ''")
+            }
+        }
+
         return Room.databaseBuilder(
             context,
             MemeDatabase::class.java,
             "meme_db"
         )
-            .fallbackToDestructiveMigration()
+            .addMigrations(MIGRATION_14_15)
             .build()
     }
 

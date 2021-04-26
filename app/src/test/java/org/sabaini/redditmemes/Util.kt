@@ -22,7 +22,8 @@ object Util {
         1000,
         Instant.now().epochSecond,
         0,
-        "memes"
+        "memes",
+        "name"
     )
 
     private val meme2 = Meme(
@@ -37,7 +38,8 @@ object Util {
         1000,
         Instant.now().epochSecond,
         0,
-        "memes"
+        "memes",
+        "name"
     )
 
     val memes = listOf(meme1, meme2)
@@ -54,7 +56,8 @@ object Util {
         1000,
         Instant.now().epochSecond,
         0,
-        "memes"
+        "memes",
+        "name"
     )
 
     private val dbMeme2 = DatabaseMeme(
@@ -69,7 +72,8 @@ object Util {
         1000,
         Instant.now().epochSecond,
         0,
-        "memes"
+        "memes",
+        "name"
     )
 
     val dbMemes = listOf(dbMeme1, dbMeme2)
@@ -89,7 +93,8 @@ object Util {
                         dbMeme1.score,
                         dbMeme1.createdUtc,
                         dbMeme1.numComments,
-                        dbMeme1.subreddit
+                        dbMeme1.subreddit,
+                        dbMeme1.name
                     )
                 ), Post(
                     PostData(
@@ -103,7 +108,8 @@ object Util {
                         dbMeme2.score,
                         dbMeme2.createdUtc,
                         dbMeme2.numComments,
-                        dbMeme2.subreddit
+                        dbMeme2.subreddit,
+                        dbMeme2.name
                     )
                 )
             )

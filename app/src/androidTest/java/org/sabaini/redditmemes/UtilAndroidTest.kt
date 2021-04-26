@@ -17,7 +17,8 @@ object UtilAndroidTest {
         1000,
         Instant.now().epochSecond,
         0,
-        "memes"
+        "memes",
+        "name"
     )
 
     private val meme2 = DatabaseMeme(
@@ -32,7 +33,8 @@ object UtilAndroidTest {
         1000,
         Instant.now().epochSecond,
         0,
-        "memes"
+        "memes",
+        "name"
     )
 
     val memes = listOf(meme1, meme2)

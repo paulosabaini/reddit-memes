@@ -22,7 +22,8 @@ data class Meme(
     val score: Int,
     val createdUtc: Long,
     val numComments: Int,
-    val subreddit: String
+    val subreddit: String,
+    val name: String
 ) : Parcelable {
     fun subtitle(): String {
         return "$author • ${getTimeElapsed()} • $subreddit"
