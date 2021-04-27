@@ -14,7 +14,8 @@ import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnitRunner
 import org.sabaini.moodtracker.MainCoroutineRule
-import org.sabaini.redditmemes.Util.memes
+import org.sabaini.redditmemes.Util.getListOfMemes
+import org.sabaini.redditmemes.entities.Meme
 import org.sabaini.redditmemes.repositories.RedditMemesRepository
 
 @RunWith(MockitoJUnitRunner::class)
@@ -31,8 +32,11 @@ class FeedViewModelTest {
 
     private lateinit var feedViewModel: FeedViewModel
 
+    private lateinit var memes: List<Meme>
+
     @Before
     fun setup() = runBlocking {
+        memes = getListOfMemes(24)
         MockitoAnnotations.initMocks(this)
         Mockito.`when`(repository.getMemes()).thenAnswer {
             return@thenAnswer flow {
@@ -60,5 +64,4 @@ class FeedViewModelTest {
         feedViewModel.displayMemeComplete()
         assertThat(feedViewModel.navigateToSelectedMeme.getOrAwaitValueTest()).isNull()
     }
-
 }

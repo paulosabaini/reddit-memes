@@ -10,109 +10,89 @@ import java.time.Instant
 
 object Util {
 
-    private val meme1 = Meme(
-        1,
-        "title",
-        "author",
-        "image",
-        false,
-        false,
-        "link",
-        1,
-        1000,
-        Instant.now().epochSecond,
-        0,
-        "memes",
-        "name"
-    )
-
-    private val meme2 = Meme(
-        2,
-        "title2",
-        "author2",
-        "image2",
-        false,
-        false,
-        "link2",
-        2,
-        1000,
-        Instant.now().epochSecond,
-        0,
-        "memes",
-        "name"
-    )
-
-    val memes = listOf(meme1, meme2)
-
-    private val dbMeme1 = DatabaseMeme(
-        1,
-        "title",
-        "author",
-        "image",
-        false,
-        false,
-        "link",
-        1,
-        1000,
-        Instant.now().epochSecond,
-        0,
-        "memes",
-        "name"
-    )
-
-    private val dbMeme2 = DatabaseMeme(
-        2,
-        "title2",
-        "author2",
-        "image2",
-        false,
-        false,
-        "link2",
-        2,
-        1000,
-        Instant.now().epochSecond,
-        0,
-        "memes",
-        "name"
-    )
-
-    val dbMemes = listOf(dbMeme1, dbMeme2)
-
     val response = Listing(
         "", ListingData(
             listOf(
                 Post(
                     PostData(
-                        dbMeme1.title,
-                        dbMeme1.author,
-                        dbMeme1.imgUrl,
-                        dbMeme1.stickied,
-                        dbMeme1.id.toString(),
-                        dbMeme1.isVideo,
-                        dbMeme1.permalink,
-                        dbMeme1.score,
-                        dbMeme1.createdUtc,
-                        dbMeme1.numComments,
-                        dbMeme1.subreddit,
-                        dbMeme1.name
+                        "title",
+                        "author",
+                        "image",
+                        false,
+                        "1",
+                        false,
+                        "link",
+                        1000,
+                        Instant.now().epochSecond,
+                        0,
+                        "memes",
+                        "name1"
                     )
                 ), Post(
                     PostData(
-                        dbMeme2.title,
-                        dbMeme2.author,
-                        dbMeme2.imgUrl,
-                        dbMeme2.stickied,
-                        dbMeme2.id.toString(),
-                        dbMeme2.isVideo,
-                        dbMeme2.permalink,
-                        dbMeme2.score,
-                        dbMeme2.createdUtc,
-                        dbMeme2.numComments,
-                        dbMeme2.subreddit,
-                        dbMeme2.name
+                        "title",
+                        "author",
+                        "image",
+                        false,
+                        "2",
+                        false,
+                        "link",
+                        1000,
+                        Instant.now().epochSecond,
+                        0,
+                        "memes",
+                        "name2"
                     )
                 )
             )
         )
     )
+
+    fun getListOfMemes(size: Int): MutableList<Meme> {
+        val list = mutableListOf<Meme>()
+        for (i in 1..size) {
+            list.add(
+                Meme(
+                    i.toLong(),
+                    "title",
+                    "author",
+                    "image",
+                    false,
+                    false,
+                    "link",
+                    i,
+                    1000,
+                    Instant.now().epochSecond,
+                    0,
+                    "memes",
+                    "name$i"
+                )
+            )
+        }
+        return list
+    }
+
+    fun getListOfDatabaseMemes(size: Int): MutableList<DatabaseMeme> {
+        val list = mutableListOf<DatabaseMeme>()
+        for (i in 1..size) {
+            list.add(
+                DatabaseMeme(
+                    i.toLong(),
+                    "title",
+                    "author",
+                    "image",
+                    false,
+                    false,
+                    "link",
+                    i,
+                    1000,
+                    Instant.now().epochSecond,
+                    0,
+                    "memes",
+                    "name$i"
+                )
+            )
+        }
+        return list
+    }
 }

@@ -1,7 +1,6 @@
 package org.sabaini.redditmemes.data.local
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.asLiveData
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -17,8 +16,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.sabaini.moodtracker.MainCoroutineRuleAndroidTest
-import org.sabaini.redditmemes.UtilAndroidTest.memes
-import org.sabaini.redditmemes.getOrAwaitValue
+import org.sabaini.redditmemes.UtilAndroidTest.getListOfMemes
 
 @RunWith(AndroidJUnit4::class)
 class MemeDaoTest {
@@ -49,8 +47,17 @@ class MemeDaoTest {
     @ExperimentalCoroutinesApi
     @Test
     fun testSaveAndLoadMemes() = runBlockingTest {
+        val memes = getListOfMemes(5)
         memeDao.save(*memes.toTypedArray())
         val result = memeDao.load().take(1).toList()[0]
         assertThat(result).isEqualTo(memes)
+    }
+
+    @Test
+    fun testDelete() = runBlocking {
+        memeDao.save(*getListOfMemes(48).toTypedArray())
+        memeDao.delete()
+        val result = memeDao.load().take(1).toList()[0]
+        assertThat(result.size).isEqualTo(24)
     }
 }

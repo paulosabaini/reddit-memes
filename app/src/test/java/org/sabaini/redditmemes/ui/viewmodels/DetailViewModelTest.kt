@@ -7,7 +7,8 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.sabaini.moodtracker.MainCoroutineRule
-import org.sabaini.redditmemes.Util.memes
+import org.sabaini.redditmemes.Util
+import org.sabaini.redditmemes.entities.Meme
 
 class DetailViewModelTest {
 
@@ -18,9 +19,11 @@ class DetailViewModelTest {
     var mainCoroutineRule = MainCoroutineRule()
 
     private lateinit var viewModel: DetailViewModel
+    private lateinit var memes: List<Meme>
 
     @Before
     fun setup() {
+        memes = Util.getListOfMemes(1)
         viewModel = DetailViewModel()
     }
 

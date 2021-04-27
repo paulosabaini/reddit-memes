@@ -15,8 +15,7 @@ import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnitRunner
 import org.sabaini.moodtracker.MainCoroutineRule
-import org.sabaini.redditmemes.Util
-import org.sabaini.redditmemes.Util.dbMemes
+import org.sabaini.redditmemes.Util.getListOfDatabaseMemes
 import org.sabaini.redditmemes.Util.response
 import org.sabaini.redditmemes.data.local.DatabaseMeme
 import org.sabaini.redditmemes.data.local.MemeDao
@@ -38,8 +37,11 @@ class RedditMemesRepositoryTest {
     private lateinit var redditApi: RedditApi
     private lateinit var repository: RedditMemesRepository
 
+    private lateinit var dbMemes: List<DatabaseMeme>
+
     @Before
     fun setup() {
+        dbMemes = getListOfDatabaseMemes(24)
         MockitoAnnotations.initMocks(this)
         repository = RedditMemesRepository(memeDao, redditApi)
     }
