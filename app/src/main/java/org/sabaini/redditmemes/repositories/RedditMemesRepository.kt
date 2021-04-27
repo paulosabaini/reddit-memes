@@ -23,6 +23,7 @@ class RedditMemesRepository @Inject constructor(
         val scope = CoroutineScope(Job() + Dispatchers.IO)
         scope.launch {
             refreshMemes()
+            deleteOldCache()
         }
 
         return memeDao.load().map { list ->
@@ -47,6 +48,16 @@ class RedditMemesRepository @Inject constructor(
             try {
                 val memes = redditApi.getMemesAfter(name)
                 memeDao.save(*memes.asDatabaseMeme(lastPosition))
+            } catch (e: Exception) {
+                Log.d("MemesRepository", e.stackTraceToString())
+            }
+        }
+    }
+
+    private suspend fun deleteOldCache() {
+        withContext(Dispatchers.IO) {
+            try {
+                memeDao.delete()
             } catch (e: Exception) {
                 Log.d("MemesRepository", e.stackTraceToString())
             }

@@ -16,4 +16,7 @@ interface MemeDao {
 
     @Query("select * from databasememe where id in (select max(id) from databasememe group by position) order by position")
     fun load(): Flow<List<DatabaseMeme>>
+
+    @Query("delete from databasememe where position > 24")
+    fun delete()
 }
