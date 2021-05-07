@@ -66,7 +66,7 @@ data class Meme(
         return "${dec.format(score)} points"
     }
 
-    fun getNumComments(): String {
+    fun getNumCommentsString(): String {
         return "$numComments comments"
     }
 }

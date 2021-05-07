@@ -11,7 +11,7 @@ class MemeTest {
 
     @Test
     fun testGetNumComments() {
-        assertThat(meme.getNumComments()).isEqualTo("${meme.numComments} comments")
+        assertThat(meme.getNumCommentsString()).isEqualTo("${meme.numComments} comments")
     }
 
     @Test

@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 
 /* Provides a instance of the database */
 
-@Database(entities = [DatabaseMeme::class], version = 15)
+@Database(entities = [DatabaseMeme::class], exportSchema = false, version = 15)
 abstract class MemeDatabase : RoomDatabase() {
 
     abstract fun memeDao(): MemeDao
