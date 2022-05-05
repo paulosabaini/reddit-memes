@@ -3,8 +3,13 @@ package org.sabaini.redditmemes.ui.viewmodels
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.androiddevs.shoppinglisttestingyt.getOrAwaitValueTest
 import com.google.common.truth.Truth.assertThat
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.drop
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runTest
+import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -44,22 +49,29 @@ class FeedViewModelTest {
             }
         }
         feedViewModel = FeedViewModel(repository)
+    }
+
+    @After
+    fun teardown() {
 
     }
 
     @Test
-    fun testViewModelInit() {
-        assertThat(feedViewModel.memes.getOrAwaitValueTest()).isEqualTo(memes)
+    @ExperimentalCoroutinesApi
+    fun testViewModelInit() = runTest {
+        assertThat(feedViewModel.memes.drop(0).first()).isEqualTo(memes)
     }
 
     @Test
-    fun testDisplayMemeDetail() {
+    @ExperimentalCoroutinesApi
+    fun testDisplayMemeDetail() = runTest {
         feedViewModel.displayMemeDetail(memes[0])
         assertThat(feedViewModel.navigateToSelectedMeme.getOrAwaitValueTest()).isEqualTo(memes[0])
     }
 
     @Test
-    fun testDisplayMemeComplete() {
+    @ExperimentalCoroutinesApi
+    fun testDisplayMemeComplete() = runTest {
         feedViewModel.displayMemeDetail(memes[0])
         feedViewModel.displayMemeComplete()
         assertThat(feedViewModel.navigateToSelectedMeme.getOrAwaitValueTest()).isNull()
