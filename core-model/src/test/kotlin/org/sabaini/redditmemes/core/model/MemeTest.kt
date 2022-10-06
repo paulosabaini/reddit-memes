@@ -1,13 +1,12 @@
-package org.sabaini.redditmemes.entities
+package org.sabaini.redditmemes.core.model
 
 import com.google.common.truth.Truth.assertThat
 import org.junit.Test
-import org.sabaini.redditmemes.Util
 import java.time.Instant
 
 class MemeTest {
 
-    val meme = Util.getListOfMemes(1)[0]
+    val meme = getListOfMemes(1)[0]
 
     @Test
     fun testGetNumComments() {
