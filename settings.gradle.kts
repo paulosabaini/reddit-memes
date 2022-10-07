@@ -16,3 +16,5 @@ dependencyResolutionManagement {
 rootProject.name = "RedditMemes"
 include(":app")
 include(":core-model")
+include(":core-network")
+include(":core-test")

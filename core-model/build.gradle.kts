@@ -18,6 +18,7 @@ android {
 }
 
 dependencies {
+    implementation(project(":core-test"))
 
     // logger
     api(libs.timber)

@@ -3,6 +3,7 @@ package org.sabaini.redditmemes.core.model
 import com.google.common.truth.Truth.assertThat
 import org.junit.Test
 import java.time.Instant
+import org.sabaini.redditmemes.core.test.getListOfMemes
 
 class MemeTest {
 

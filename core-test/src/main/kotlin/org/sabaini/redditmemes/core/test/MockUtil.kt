@@ -1,6 +1,7 @@
-package org.sabaini.redditmemes.core.model
+package org.sabaini.redditmemes.core.test
 
 import java.time.Instant
+import org.sabaini.redditmemes.core.model.Meme
 
 fun getListOfMemes(size: Int): MutableList<Meme> {
     val list = mutableListOf<Meme>()
